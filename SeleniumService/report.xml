@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" name="JTestUnit" tests="3" time="90.057">
+  <properties />
+  <testcase name="test001" time="28.077" />
+  <testcase name="test002" time="29.528" />
+  <testcase name="test003" time="32.451" />
+</testsuite>
