@@ -17,7 +17,7 @@ import com.wistron.selenium.SeleniumService.Constant;
 import junit.framework.TestCase;
 
 public class BaseTest extends TestCase {
-	// public static boolean REMOTE_MODE = false;
+	public static boolean REMOTE_MODE = true;
 
 	protected WebDriver driver;
 
@@ -31,9 +31,12 @@ public class BaseTest extends TestCase {
 
 	@Before
 	public void setUp() throws Exception {
-
-		System.setProperty("webdriver.chrome.driver", "target/test-classes/chromedriver");
-		driver = new ChromeDriver();
+		if (REMOTE_MODE)
+			driver = new RemoteWebDriver(new URL("http://192.168.150.55:4444/wd/hub"), DesiredCapabilities.chrome());
+		else {
+			System.setProperty("webdriver.chrome.driver", "target/test-classes/chromedriver.exe");
+			driver = new ChromeDriver();
+		}
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.get(Constant.CLASS_URL);
