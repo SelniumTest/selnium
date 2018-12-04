@@ -36,7 +36,7 @@ public class Test026 extends TestCase {
 	@Before
 	public void setUp() throws Exception {
 		if (REMOTE_MODE)
-			driver = new RemoteWebDriver(new URL("http://192.168.31.117:4444/wd/hub"), DesiredCapabilities.chrome());
+			driver = new RemoteWebDriver(new URL("http://192.168.150.55:4444/wd/hub"), DesiredCapabilities.chrome());
 		else {
 			System.setProperty("webdriver.chrome.driver", "target/test-classes/chromedriver");
 			driver = new ChromeDriver();
