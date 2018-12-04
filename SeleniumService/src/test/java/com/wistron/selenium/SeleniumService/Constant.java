@@ -1,7 +1,7 @@
 package com.wistron.selenium.SeleniumService;
 
 public class Constant {
-	public static final String CLASS_URL = "http://class-t.cooc.openlab.tw/question";
+	public static final String BOOM_URL = "http://class-t.cooc.openlab.tw/question";
 	public static final String SUPER_USERID = "bedfordshire-metrics@yopmail.com";
 	public static final String PWD = "123456q";
 	public static final String CHOICE_QUESTION = "01"; //單選

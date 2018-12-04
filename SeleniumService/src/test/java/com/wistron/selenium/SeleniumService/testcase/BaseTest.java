@@ -2,8 +2,6 @@ package com.wistron.selenium.SeleniumService.testcase;
 
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.junit.After;
 import org.junit.Before;
@@ -12,7 +10,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,7 +20,7 @@ import com.wistron.selenium.SeleniumService.Constant;
 import junit.framework.TestCase;
 
 public class BaseTest extends TestCase {
-	public static boolean REMOTE_MODE = true;
+	public static boolean REMOTE_MODE = false;
 
 	protected WebDriver driver;
 
@@ -38,15 +35,15 @@ public class BaseTest extends TestCase {
 	@Before
 	public void setUp() throws Exception {
 		if (REMOTE_MODE)
-			driver = new RemoteWebDriver(new URL("http://192.168.31.117:4444/wd/hub"), DesiredCapabilities.chrome());
+			driver = new RemoteWebDriver(new URL("http://192.168.150.55:4444/wd/hub"), DesiredCapabilities.chrome());
 		else {
-			System.setProperty("webdriver.chrome.driver", "target/test-classes/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "target/test-classes/chromedriver");
 			driver = new ChromeDriver();
 		}
 
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		driver.get(Constant.CLASS_URL);
-		if (!driver.getCurrentUrl().startsWith(Constant.CLASS_URL)) {
+		driver.get(Constant.BOOM_URL);
+		if (!driver.getCurrentUrl().startsWith(Constant.BOOM_URL)) {
 			JavascriptExecutor javascriptRunner = ((JavascriptExecutor) driver);
 			javascriptRunner
 					.executeScript("$('#loginId').attr('name','j_username').val('" + Constant.SUPER_USERID + "');");
