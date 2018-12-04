@@ -20,7 +20,7 @@ import com.wistron.selenium.SeleniumService.Constant;
 import junit.framework.TestCase;
 
 public class BaseTest extends TestCase {
-	public static boolean REMOTE_MODE = false;
+	public static boolean REMOTE_MODE = true;
 
 	protected WebDriver driver;
 
