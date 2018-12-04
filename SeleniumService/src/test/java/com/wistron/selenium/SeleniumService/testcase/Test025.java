@@ -22,7 +22,7 @@ import junit.framework.TestCase;
 
 public class Test025 extends TestCase{
 	
-	public static boolean REMOTE_MODE = false;
+	public static boolean REMOTE_MODE = true;
 
 	protected WebDriver driver;
 
